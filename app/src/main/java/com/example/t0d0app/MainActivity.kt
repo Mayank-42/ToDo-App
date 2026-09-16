@@ -93,12 +93,18 @@ class MainActivity : ComponentActivity() {
         setContent {
             val application = application as todoApplication
 
-            val repository = todoReposatory(
-                application.database.Daoo()
-            )
+//            val repository = todoReposatory(
+//                application.database.Daoo()
+//            )
+            val repository = application.container.repository
+
+//            val viewModel: TaskViewModel = viewModel(
+//                factory = TaskViewModelFactory(repository)
+//            )
             val viewModel: TaskViewModel = viewModel(
-                factory = TaskViewModelFactory(repository)
+                factory = application.container.viewModelFactory
             )
+
 //            val viewMolel: TaskViewModel= viewModel()
 //            viewModel.insert( Task(0,"SWIPE TO DELETE"))
             T0D0APPTheme {
