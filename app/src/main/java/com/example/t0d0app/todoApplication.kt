@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.example.t0d0app.data.local.AppContainer
+//import com.example.t0d0app.data.local.AppContainer
 import com.example.t0d0app.data.local.todoDatabase
 //import dagger.hilt.android.HiltAndroidApp
 import kotlin.jvm.java
@@ -63,7 +63,7 @@ import kotlin.jvm.java
 class todoApplication : Application() {
 
     lateinit var database: todoDatabase
-    lateinit var   container: AppContainer
+//    lateinit var   container: AppContainer
 
     override fun onCreate() {
         super.onCreate()
@@ -89,6 +89,6 @@ class todoApplication : Application() {
             })
             .build()
 
-        container = AppContainer(database)
+//        container = AppContainer(database)
     }
 }

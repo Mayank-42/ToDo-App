@@ -83,28 +83,31 @@ import androidx.room.util.copy
 import com.example.t0d0app.data.local.Task
 import com.example.t0d0app.data.local.todoReposatory
 import com.example.t0d0app.ui.theme.T0D0APPTheme
+import dagger.hilt.android.AndroidEntryPoint
 import java.nio.file.Files.size
 import kotlin.collections.emptyList
+import androidx.hilt.navigation.compose.hiltViewModel
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {// it can reive a bundel,, y it is nulable beacuse when we create this for the first time so does android have any bundel(NO) so at that time we will pass null inside it
         super.onCreate(savedInstanceState)  //and now when we use onDestroy and call to onCreate it will first call its parent then we can if that has some bunle we execute that
         enableEdgeToEdge()
         setContent {
-            val application = application as todoApplication
+//            val application = application as todoApplication
 
 //            val repository = todoReposatory(
 //                application.database.Daoo()
 //            )
-            val repository = application.container.repository
+//            val repository = application.container.repository
 
 //            val viewModel: TaskViewModel = viewModel(
 //                factory = TaskViewModelFactory(repository)
 //            )
-            val viewModel: TaskViewModel = viewModel(
-                factory = application.container.viewModelFactory
-            )
-
+//            val viewModel: TaskViewModel = viewModel(
+//                factory = application.container.viewModelFactory
+//            )
+            val viewModel: TaskViewModel = hiltViewModel()
 //            val viewMolel: TaskViewModel= viewModel()
 //            viewModel.insert( Task(0,"SWIPE TO DELETE"))
             T0D0APPTheme {

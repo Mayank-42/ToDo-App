@@ -40,6 +40,7 @@ android {
 }
 
 dependencies {
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
