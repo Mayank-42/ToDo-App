@@ -5,10 +5,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.t0d0app.data.local.Task
 import com.example.t0d0app.data.local.todoReposatory
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class TaskViewModel(
+@HiltViewModel
+class TaskViewModel @Inject constructor(
     private val repository: todoReposatory
 ) : ViewModel() {
 
@@ -39,17 +42,17 @@ class TaskViewModel(
     }
 }
 
-class TaskViewModelFactory(
-    private val repository: todoReposatory
-) : ViewModelProvider.Factory {
-
-    @Suppress("UNCHECKED_CAST")
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-
-        if (modelClass.isAssignableFrom(TaskViewModel::class.java)) {
-            return TaskViewModel(repository) as T
-        }
-
-        throw IllegalArgumentException("Unknown ViewModel class")
-    }
-}
+//class TaskViewModelFactory(
+//    private val repository: todoReposatory
+//) : ViewModelProvider.Factory {
+//
+//    @Suppress("UNCHECKED_CAST")
+//    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+//
+//        if (modelClass.isAssignableFrom(TaskViewModel::class.java)) {
+//            return TaskViewModel(repository) as T
+//        }
+//
+//        throw IllegalArgumentException("Unknown ViewModel class")
+//    }
+//}
