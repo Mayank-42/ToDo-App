@@ -12,6 +12,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 import com.example.t0d0app.data.local.todoDatabase
+import com.example.t0d0app.data.local.todoReposatory
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -47,10 +48,17 @@ object DataModule {
 
     @Provides
     @Singleton
-    fun providetodoRepo(
+    fun provideTodoDao(
          database: todoDatabase
     ):taskDAO  {
         return database.Daoo()
+    }
+    @Provides
+    @Singleton
+    fun provideRepo(
+        taskDao: taskDAO
+    ): todoReposatory{
+        return todoReposatory(taskDao)
     }
 
 }
