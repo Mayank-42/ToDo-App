@@ -6,6 +6,7 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.t0d0app.data.local.AppContainer
 import com.example.t0d0app.data.local.todoDatabase
+//import dagger.hilt.android.HiltAndroidApp
 import kotlin.jvm.java
 
 //class todoApplication : Application() {
@@ -58,6 +59,7 @@ import kotlin.jvm.java
 //        container = AppContainer(database)
 //    }
 //}
+
 class todoApplication : Application() {
 
     lateinit var database: todoDatabase
