@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.example.t0d0app.data.local.taskDAO
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -43,4 +44,13 @@ object DataModule {
             })
             .build()
     }
+
+    @Provides
+    @Singleton
+    fun providetodoRepo(
+         database: todoDatabase
+    ):taskDAO  {
+        return database.Daoo()
+    }
+
 }
